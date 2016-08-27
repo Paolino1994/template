@@ -39,9 +39,7 @@ public class Cola<T> /*implements Queue2<T> */ {
         } catch (Exception exception) {
             throw new Exception();
         }
-
-
-    }// retornar el primer item, lanzar    exception si esta vacío.
+    }  // retornar el primer item, lanzar    exception si esta vacío.
 
     public void remove() throws Exception {
         try {
