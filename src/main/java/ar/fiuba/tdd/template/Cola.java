@@ -1,54 +1,53 @@
 package ar.fiuba.tdd.template;
 
-import java.util.Queue;
-
-public class Cola<T> /*implements Queue2<T> */{
+public class Cola<T> /*implements Queue2<T> */ {
     private Node top;
     private Node bottom;
     private Integer size;
 
     public Cola() {
-        this.size=0;
+        this.size = 0;
     }
 
 
     public boolean isEmpty() {
-        return (top==null);
+        return (top == null);
     }
 
-    public int size(){
+    public int size() {
         return this.size;
     }
-    public void add(T item){
+
+    public void add(T item) {
         Node newNode = new Node<>(item);
-        try{
+        try {
             this.bottom.setNext(newNode);
-            this.bottom=newNode;
-        }
-        catch(Exception excepcion){
-            this.top=newNode;
-            this.bottom=newNode;
+            this.bottom = newNode;
+        } catch (Exception excepcion) {
+            this.top = newNode;
+            this.bottom = newNode;
         }
         size++;
     } // agregar un item
+
     public T top() throws Exception {
-        try{
-            T itemToReturn=(T)this.top.getItem();//Esto no se porque no anda, si el tipo de dato que devuelve es el mismo!!!
-            this.top=this.top.getNext();
+        try {
+            T itemToReturn = (T) this.top.getItem();//Esto no se porque no anda, si el tipo de dato que devuelve es el mismo!!!
+            this.top = this.top.getNext();
             this.size--;
             return itemToReturn;
-        }catch(Exception exception){
+        } catch (Exception exception) {
             throw new Exception();
         }
 
 
-
     }// retornar el primer item, lanzar    exception si esta vacío.
+
     public void remove() throws Exception {
-        try{
-            this.top=this.top.getNext();
-        }catch(Exception excepcion){
-            this.top=null;
+        try {
+            this.top = this.top.getNext();
+        } catch (Exception excepcion) {
+            this.top = null;
             throw new Exception();
         }
         this.size--;
