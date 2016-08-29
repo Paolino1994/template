@@ -19,7 +19,7 @@ public class Cola<T> /*implements Queue2<T> */ {
     }
 
     public void add(T item) {
-        Node newNode = new Node<>(item);
+        Node newNode = new Node<T>(item);
         try {
             this.bottom.setNext(newNode);
             this.bottom = newNode;

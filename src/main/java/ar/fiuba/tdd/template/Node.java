@@ -1,15 +1,15 @@
 package ar.fiuba.tdd.template;
 
 
-public class Node<T> {
-    private T item;
+public class Node<X> {
+    private X item;
     private Node next;
 
-    public Node(T data) {
+    public Node(X data) {
         item = data;
     }
 
-    public T getItem() {
+    public X getItem() {
         return item;
     }
 

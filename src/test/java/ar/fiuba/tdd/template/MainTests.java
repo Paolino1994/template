@@ -41,7 +41,7 @@ public class MainTests {
     }
 
     @Test
-    public void puedoObtenerUnTamañoCorrecto() {
+    public void puedoObtenerUnTamanioCorrecto() {
         Cola cola1 = new Cola<Integer>();
         cola1.add(5);
         cola1.add(6);
