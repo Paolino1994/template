@@ -1,8 +1,8 @@
 package ar.fiuba.tdd.template;
 
 public class Cola<T> /*implements Queue2<T> */ {
-    private Node top;
-    private Node bottom;
+    private Node<T> top;
+    private Node<T> bottom;
     private Integer size;
 
     public Cola() {
@@ -19,7 +19,7 @@ public class Cola<T> /*implements Queue2<T> */ {
     }
 
     public void add(T item) {
-        Node newNode = new Node<T>(item);
+        Node<T> newNode = new Node<T>(item);
         try {
             this.bottom.setNext(newNode);
             this.bottom = newNode;
@@ -27,12 +27,12 @@ public class Cola<T> /*implements Queue2<T> */ {
             this.top = newNode;
             this.bottom = newNode;
         }
-        size++;
+        this.size++;
     } // agregar un item
 
     public T top() throws AssertionError {
         try {
-            T itemToReturn = (T) this.top.getItem();//Esto no se porque no anda, si el tipo de dato que devuelve es el mismo!!!
+            T itemToReturn = this.top.getItem();//Esto no se porque no anda, si el tipo de dato que devuelve es el mismo!!!
             replaceNextItem();
             return itemToReturn;
         } catch (Exception exception) {

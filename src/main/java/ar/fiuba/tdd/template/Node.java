@@ -1,23 +1,23 @@
 package ar.fiuba.tdd.template;
 
 
-public class Node<X> {
-    private X item;
-    private Node next;
+public class Node<T> {
+    private T item;
+    private Node<T> next;
 
-    public Node(X data) {
-        item = data;
+    public Node(T data) {
+        this.item = data;
     }
 
-    public X getItem() {
-        return item;
+    public T getItem() {
+        return this.item;
     }
 
-    public Node getNext() {
-        return next;
+    public Node<T> getNext() {
+        return this.next;
     }
 
-    public void setNext(Node nextNode) {
+    public void setNext(Node<T> nextNode) {
         this.next = nextNode;
     }
 }
