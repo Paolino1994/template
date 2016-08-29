@@ -30,24 +30,26 @@ public class Cola<T> /*implements Queue2<T> */ {
         size++;
     } // agregar un item
 
-    public T top() throws Exception {
+    public T top() throws AssertionError {
         try {
             T itemToReturn = (T) this.top.getItem();//Esto no se porque no anda, si el tipo de dato que devuelve es el mismo!!!
-            this.top = this.top.getNext();
-            this.size--;
+            replaceNextItem();
             return itemToReturn;
         } catch (Exception exception) {
-            throw new Exception();
+            throw new AssertionError();
         }
     }  // retornar el primer item, lanzar    exception si esta vacío.
 
-    public void remove() throws Exception {
+    public void remove() throws AssertionError {
         try {
-            this.top = this.top.getNext();
+            replaceNextItem();
         } catch (Exception excepcion) {
-            this.top = null;
-            throw new Exception();
+            throw new AssertionError();
         }
-        this.size--;
     } // remover el primer item,    lanzar exception si esta vacío.
+
+    private void replaceNextItem() {
+        this.top = this.top.getNext();
+        this.size--;
+    }
 }

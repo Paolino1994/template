@@ -51,7 +51,7 @@ public class MainTests {
             cola1.remove();
             assertEquals(cola1.size(), 2);
             assertFalse(cola1.isEmpty());
-        } catch (Exception e) {
+        } catch (AssertionError e) {
             assertTrue(false);//falla el test si lanza la excepcion
         }
 
@@ -68,7 +68,7 @@ public class MainTests {
             try {
                 cola1.top();//tiene que lanzar Error
                 assertTrue(false);//falla el test si no lanza la excepcion en el top
-            } catch (Exception exception2) {
+            } catch (AssertionError e) {
                 assertTrue(true);
             }
         } catch (Exception e) {
