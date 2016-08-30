@@ -22,13 +22,9 @@ public class MainTests {
         cola1.add(num5);
         cola1.add(num6);
         cola1.add(num7);
-        try {
-            assertEquals(cola1.top(), num5);
-            assertEquals(cola1.top(), num6);
-            assertEquals(cola1.top(), num7);
-        } catch (Exception exeption) {
-            assertTrue(false);//falla el test si lanza la excepcion
-        }
+        assertEquals(cola1.top(), num5);
+        assertEquals(cola1.top(), num6);
+        assertEquals(cola1.top(), num7);
     }
 
     @Test
@@ -61,14 +57,9 @@ public class MainTests {
         cola1.add("Darkness");
         cola1.add("My old friend");
         assertEquals(cola1.size(), 3);
-        try {
-            cola1.remove();
-            assertEquals(cola1.size(), 2);
-            assertFalse(cola1.isEmpty());
-        } catch (AssertionError e) {
-            assertTrue(false);//falla el test si lanza la excepcion
-        }
-
+        cola1.remove();
+        assertEquals(cola1.size(), 2);
+        assertFalse(cola1.isEmpty());
     }
 
     @Test
@@ -76,18 +67,38 @@ public class MainTests {
         Cola<Integer> cola1 = new Cola<Integer>();
         cola1.add(num5);
         cola1.add(num6);
+        cola1.remove();
+        cola1.remove();
+        try {
+            cola1.top();//tiene que lanzar AssertionError
+            assertTrue(false);//falla el test si no lanza la excepcion en el top
+        } catch (AssertionError e) {
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void siAgregoYBorroTodosLosObjetosLaListaDebeEstarVacia() {
+        Cola<String> cola1 = new Cola<String>();
+        cola1.add("Hello darkness, my old friend ");
+        cola1.add("I've come to talk with you again");
+        cola1.add("Because a vision softly creeping ");
+        cola1.add("Left its seeds while I was sleeping ");
+        cola1.remove();
+        cola1.remove();
+        cola1.remove();
+        cola1.remove();
+        assertTrue(cola1.isEmpty());
+    }
+
+    @Test
+    public void noPuedoRemoverAlgoDeUnaColaVacia() {
+        Cola<Integer> cola1 = new Cola<Integer>();
         try {
             cola1.remove();
-            cola1.remove();
-            try {
-                cola1.top();//tiene que lanzar Error
-                assertTrue(false);//falla el test si no lanza la excepcion en el top
-            } catch (AssertionError e) {
-                assertTrue(true);
-            }
-        } catch (Exception e) {
-            assertTrue(false);//falla el test si lanza la excepcion antes del top
+            assertTrue(false);
+        } catch (AssertionError e) {
+            assertTrue(true);
         }
-
     }
 }

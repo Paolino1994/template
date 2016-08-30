@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.template;
 
-public class Cola<T> /*implements Queue2<T> */ {
+public class Cola<T> {
     private Node<T> top;
     private Node<T> bottom;
     private Integer size;
@@ -21,18 +21,17 @@ public class Cola<T> /*implements Queue2<T> */ {
     public void add(T item) {
         Node<T> newNode = new Node<T>(item);
         try {
-            this.bottom.setNext(newNode);
-            this.bottom = newNode;
-        } catch (Exception excepcion) {
+            this.bottom.setNext(newNode);//si esta vacia tira la excepcion
+        } catch (Exception exception) {
             this.top = newNode;
-            this.bottom = newNode;
         }
+        this.bottom = newNode;
         this.size++;
     } // agregar un item
 
     public T top() throws AssertionError {
         try {
-            T itemToReturn = this.top.getItem();//Esto no se porque no anda, si el tipo de dato que devuelve es el mismo!!!
+            T itemToReturn = this.top.getItem();
             replaceNextItem();
             return itemToReturn;
         } catch (Exception exception) {
@@ -43,7 +42,7 @@ public class Cola<T> /*implements Queue2<T> */ {
     public void remove() throws AssertionError {
         try {
             replaceNextItem();
-        } catch (Exception excepcion) {
+        } catch (Exception exception) {
             throw new AssertionError();
         }
     } // remover el primer item,    lanzar exception si esta vacío.
