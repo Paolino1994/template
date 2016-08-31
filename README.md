@@ -9,3 +9,5 @@ Template Gradle project
 * PMD
 * JaCoCo
 
+Build final de travis https://travis-ci.org/Paolino1994/template/builds/156547998
+Pagina de travis https://travis-ci.org/Paolino1994/template
