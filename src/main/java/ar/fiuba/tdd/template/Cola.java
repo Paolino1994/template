@@ -34,7 +34,7 @@ public class Cola<T> {
             T itemToReturn = this.top.getItem();
             replaceNextItem();
             return itemToReturn;
-        } catch (Exception exception) {
+        } catch (Exception exceptionE) {
             throw new AssertionError();
         }
     }  // retornar el primer item, lanzar    exception si esta vacío.
@@ -42,7 +42,7 @@ public class Cola<T> {
     public void remove() throws AssertionError {
         try {
             replaceNextItem();
-        } catch (Exception exception) {
+        } catch (Exception exceptionE) {
             throw new AssertionError();
         }
     } // remover el primer item,    lanzar exception si esta vacío.
