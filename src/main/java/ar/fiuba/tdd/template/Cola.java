@@ -29,7 +29,7 @@ public class Cola<T> {
         this.size++;
     } // agregar un item
 
-    public T top() throws AssertionError {
+    public T top() {
         try {
             T itemToReturn = this.top.getItem();
             replaceNextItem();
@@ -39,7 +39,7 @@ public class Cola<T> {
         }
     }  // retornar el primer item, lanzar    exception si esta vacío.
 
-    public void remove() throws AssertionError {
+    public void remove() {
         try {
             replaceNextItem();
         } catch (Exception exceptionE) {
