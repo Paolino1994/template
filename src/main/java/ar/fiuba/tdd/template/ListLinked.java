@@ -33,7 +33,7 @@ public class ListLinked<T> {
         }
     }
 
-    public void removeFirstItem() {
+    public void removeFirst() {
         try {
             this.first = this.first.getNext();
             this.size--;

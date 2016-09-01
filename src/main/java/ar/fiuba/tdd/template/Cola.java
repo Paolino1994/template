@@ -25,7 +25,7 @@ public class Cola<T> implements Queue<T> {
     }
 
     public void remove() {
-        list.removeFirstItem();
+        list.removeFirst();
     }
 
 }
