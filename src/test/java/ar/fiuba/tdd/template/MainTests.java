@@ -23,7 +23,9 @@ public class MainTests {
         cola1.add(num6);
         cola1.add(num7);
         assertEquals(cola1.top(), num5);
+        cola1.remove();
         assertEquals(cola1.top(), num6);
+        cola1.remove();
         assertEquals(cola1.top(), num7);
     }
 
@@ -38,7 +40,7 @@ public class MainTests {
         Cola<String> cola1 = new Cola<String>();
         cola1.add("HOLA");
         assertFalse(cola1.isEmpty());
-        assertEquals("HOLA", cola1.top());
+
     }
 
     @Test
@@ -47,6 +49,7 @@ public class MainTests {
         cola1.add("HOLA");
         cola1.add(num5);
         assertEquals("HOLA", cola1.top());
+        cola1.remove();
         assertEquals(num5, cola1.top());
     }
 
@@ -97,7 +100,7 @@ public class MainTests {
         try {
             cola1.remove();
             assertTrue(false);
-        } catch (AssertionError e) {
+        } catch (AssertionError ex) {
             assertTrue(true);
         }
     }

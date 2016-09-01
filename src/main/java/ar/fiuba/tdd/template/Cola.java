@@ -1,54 +1,31 @@
 package ar.fiuba.tdd.template;
 
 public class Cola<T> implements Queue<T> {
-    private Node<T> top;
-    private Node<T> bottom;
-    private Integer size;
+    private ListLinked<T> list;
 
     public Cola() {
-        this.size = 0;
+        list = new ListLinked<T>();
     }
 
 
     public boolean isEmpty() {
-        return (top == null);
+        return (list.isEmpty());
     }
 
     public int size() {
-        return this.size;
+        return list.getSize();
     }
 
     public void add(T item) {
-        Node<T> newNode = new Node<T>(item);
-        try {
-            this.bottom.setNext(newNode);//si esta vacia tira la excepcion
-        } catch (Exception exception) {
-            this.top = newNode;
-        }
-        this.bottom = newNode;
-        this.size++;
+        list.addLast(item);
     }
 
     public T top() {
-        try {
-            T itemToReturn = this.top.getItem();
-            replaceNextItem();
-            return itemToReturn;
-        } catch (Exception exceptionE) {
-            throw new AssertionError();
-        }
+        return list.returnFirst();
     }
 
     public void remove() {
-        try {
-            replaceNextItem();
-        } catch (Exception exceptionE) {
-            throw new AssertionError();
-        }
+        list.removeFirstItem();
     }
 
-    private void replaceNextItem() {
-        this.top = this.top.getNext();
-        this.size--;
-    }
 }
