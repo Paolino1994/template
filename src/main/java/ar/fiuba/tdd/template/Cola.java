@@ -1,6 +1,6 @@
 package ar.fiuba.tdd.template;
 
-public class Cola<T> {
+public class Cola<T> implements Queue<T> {
     private Node<T> top;
     private Node<T> bottom;
     private Integer size;
@@ -27,7 +27,7 @@ public class Cola<T> {
         }
         this.bottom = newNode;
         this.size++;
-    } // agregar un item
+    }
 
     public T top() {
         try {
@@ -37,7 +37,7 @@ public class Cola<T> {
         } catch (Exception exceptionE) {
             throw new AssertionError();
         }
-    }  // retornar el primer item, lanzar    exception si esta vacío.
+    }
 
     public void remove() {
         try {
@@ -45,7 +45,7 @@ public class Cola<T> {
         } catch (Exception exceptionE) {
             throw new AssertionError();
         }
-    } // remover el primer item,    lanzar exception si esta vacío.
+    }
 
     private void replaceNextItem() {
         this.top = this.top.getNext();
