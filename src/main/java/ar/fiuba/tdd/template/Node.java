@@ -20,7 +20,4 @@ public class Node<T> {
     public void setNext(Node<T> nextNode) {
         this.next = nextNode;
     }
-    public void deleteNext() {
-        this.next = null;
-    }
 }
