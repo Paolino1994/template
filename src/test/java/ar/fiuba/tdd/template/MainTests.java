@@ -81,7 +81,7 @@ public class MainTests {
     }
 
     @Test
-    public void siAgregoYBorroTodosLosObjetosLaListaDebeEstarVacia() {
+    public void siAgregoYBorroTodosLosObjetosLaColaDebeEstarVacia() {
         Cola<String> cola1 = new Cola<String>();
         cola1.add("Hello darkness, my old friend ");
         cola1.add("I've come to talk with you again");
@@ -96,11 +96,13 @@ public class MainTests {
 
     @Test
     public void noPuedoRemoverAlgoDeUnaColaVacia() {
-        Cola<Integer> cola1 = new Cola<Integer>();
+        Cola<String> cola1 = new Cola<String>();
+        cola1.add("Left its seeds while I was sleeping ");
+        cola1.remove();
         try {
             cola1.remove();
             assertTrue(false);
-        } catch (AssertionError ex) {
+        } catch (AssertionError e) {
             assertTrue(true);
         }
     }
